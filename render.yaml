@@ -1,0 +1,16 @@
+
+services:
+  - type: worker
+    name: telegram-group-manager
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: MAX_USERS
+        value: "10"
+      - key: TAG_BATCH_LIMIT
+        value: "20"
